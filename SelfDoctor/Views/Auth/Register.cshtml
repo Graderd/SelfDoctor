@@ -1,0 +1,85 @@
+﻿@model Selfdoctor.Application.Dtos.User.UserInsertDto
+
+@{
+    ViewData["Title"] = "Register User";
+}
+ <link rel="stylesheet" href="~/css/Register.css" />
+
+
+
+<div class="login-form-container @Html.Raw(ViewBag.RegisterActive)" id="container">
+
+    <div class="form-container register-container">
+        <form method="post" asp-action="Register">
+            <h1>Registrate aqui.</h1>
+
+            <div class="mb-3 form-group" >
+                <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" asp-for="Email" placeholder="Email">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 form-group">
+                <input class="form-control" asp-for="UserName" placeholder="Nombre de Usuario">
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 form-group">
+                <input type="password" class="form-control" id="InputPassword1" asp-for="Password" placeholder="Contraseña">
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 form-group">
+                <input type="password" class="form-control" id="InputPassword1" asp-for="ConfirmPassword" placeholder="Confirmar Contraseña">
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button type="submit" name="button">Registrar</button>
+           
+        </form>
+    </div>
+
+    <div class="form-container login-container @Html.Raw(ViewBag.LoginActive)">
+        <form asp-action="Login" method="post">
+            <h1>Inicia seccion aqui</h1>
+            <input type="text" placeholder="Email" name="userName">
+            <input type="password" placeholder="Password" name="password">
+            <div class="content">
+                <div class="checkbox">
+                    <input type="checkbox" name="checkbox" id="checkbox">
+                    <label>Recordar</label>
+                </div>
+                <div class="pass-link">
+                    <a href="#">Olvidaste la Contraseña?</a>
+                </div>
+            </div>
+            <button>Iniciar</button>
+            @if (!string.IsNullOrEmpty(ViewBag.LoginActive))
+            {
+                <span class="text-danger"> Usuario o contraseña incorrecta </span>
+            }
+        </form>
+    </div>
+
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1 class="title">Hola <br> Amigos</h1>
+                
+                <button class="ghost" id="login">
+                    Inicia
+                    <i class="lni lni-arrow-left login"></i>
+                </button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1 class="title">Empieza <br> tu expericia ahora</h1>
+                
+                <button class="ghost" id="register">
+                    Registrate
+                    <i class="lni lni-arrow-right register"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="~/js/Register.js"></script>

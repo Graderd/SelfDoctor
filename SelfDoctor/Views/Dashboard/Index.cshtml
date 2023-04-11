@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<link rel="stylesheet" href="~/css/Card.css" />
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="card card-1-gradient ">
+				<h2 class="text-white">DIABETES</h2>
+				<p>Contenido de diagnosticos</p>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card card-2-gradient">
+				<h2 class="text-white">HEPATITIS</h2>
+				<p>Contenido de diagnosticos</p>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card card-3-gradient">
+				<h2 class="text-white">CANCER DE MAMA1</h2>
+				<p>Contenido de diagnosticos</p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<canvas id="lastDiagnosticDiabetesGraphic" width="350" height="350">myChart</canvas>
+		</div>
+		<div class="col-md-4">
+			<canvas id="lastDiagnosticHepatitisGraphic" width="350" height="350">myChart</canvas>
+		</div>
+		<div class="col-md-4">
+			<canvas id="lastDiagnosticCancerGraphic" width="350" height="350">myChart</canvas>
+		</div>
+	</div> 
+</div>
+<script src="~/js/dashboard.js"></script>
