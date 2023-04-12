@@ -53,7 +53,7 @@ builder.Services.AddTransient<IHepatitiscCategoryRepository, HepatitiescCategory
 builder.Services.AddTransient<IHepatitiscDiagnosticRepository, HepatitiscDiagnosticRepository>();
 
 builder.Services.AddTransient<IAuthService, AuthService>();
-
+builder.Services.AddTransient<IHepatitisDiagnosticService, HepatitiscDiagnosticSerrvice>();
 
 var app = builder.Build();
 

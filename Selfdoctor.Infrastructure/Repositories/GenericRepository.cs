@@ -55,5 +55,7 @@ namespace Selfdoctor.Infrastructure.Repositories
             _dbContext.Entry(oldEntity).CurrentValues.SetValues(newEntity);
             return newEntity;
         }
+
+        public async Task<int> SaveChangesAsync() => await _dbContext.SaveChangesAsync();
     }
 }

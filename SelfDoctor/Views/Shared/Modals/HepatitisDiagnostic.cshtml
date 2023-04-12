@@ -1,0 +1,102 @@
+﻿@model Selfdoctor.Application.Dtos.HepatitisDiagnostic.HepatitisDiagnosticRequestDto
+<div class="modal fade" id="createHepatitisDiagnostic">
+    <div class="modal-dialog modal-lg">
+        <form asp-controller="HepatitisDiagnostic" asp-action="Index">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Diagnostico de Hepatitis</h3>
+            </div>
+            <div class="modal-body">
+                
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="alb">ALB:</label>
+                                <input asp-for="ALB" class="form-control" type="number" step=".01" id="alb" name="alb">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="alp">ALP:</label>
+                                <input asp-for="ALP" class="form-control" type="number" step=".01" id="alp" name="alp">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="gender">Sexo:</label>
+                                <select asp-for="GenderId" class="form-select">
+                                    <option disabled selected>SELECCIONA UN GENERO</option>
+                                    <option value="1">M</option>
+                                    <option value="2">F</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="alt">ALT:</label>
+                                <input asp-for="ALT" class="form-control" type="number" step=".01" id="alt" name="alt">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="ast">AST:</label>
+                                <input asp-for="AST" class="form-control" type="number" step=".01" id="ast" name="ast">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="bil">BIL:</label>
+                                <input asp-for="BIL" class="form-control" type="number" step=".01" id="bil" name="bil">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="che">CHE:</label>
+                                <input asp-for="CHE" class="form-control" type="number" step=".01" id="che" name="che">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="chol">CHOL:</label>
+                                <input asp-for="CHOL" class="form-control" type="number" step=".01" id="chol" name="chol">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="crea">CREA:</label>
+                                <input asp-for="CREA" class="form-control" type="number" step=".01" id="crea" name="crea">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="ggt">GGT:</label>
+                                <input asp-for="GGT" class="form-control" type="number" step=".01" id="ggt" name="ggt">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="prot">PROT:</label>
+                                <input asp-for="PROT" class="form-control" type="number" step=".01" id="prot" name="prot">
+                            </div>
+                        </div>
+                    </div>
+
+                
+                    
+                
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" data-bs-dismiss="modal" type="button" id="cancelar">Cancelar</button>
+                <button class="btn btn-primary" type="submit" id="enviar">Enviar</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>

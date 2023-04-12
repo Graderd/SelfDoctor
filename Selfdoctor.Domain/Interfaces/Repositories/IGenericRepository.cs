@@ -14,6 +14,7 @@ namespace Selfdoctor.Domain.Interfaces.Repositories
         Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> filter, List<Expression<Func<T, object>>> includes = null!);
         Task<T> AddAsync(T entity);
         T Update(T oldEntity, T newEntity);
-        void Delete(T entity);  
+        void Delete(T entity);
+        Task<int> SaveChangesAsync();
     }
 }

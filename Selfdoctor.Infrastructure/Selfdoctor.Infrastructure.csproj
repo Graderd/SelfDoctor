@@ -24,6 +24,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Selfdoctor.Application\Selfdoctor.Application.csproj" />
     <ProjectReference Include="..\Selfdoctor.Domain\Selfdoctor.Domain.csproj" />
+    <ProjectReference Include="..\Selfdoctor.TrainingModels\Selfdoctor.TrainingModels.csproj" />
   </ItemGroup>
 
 </Project>

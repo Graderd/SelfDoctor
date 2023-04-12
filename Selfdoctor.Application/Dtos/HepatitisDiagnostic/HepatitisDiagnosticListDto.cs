@@ -1,17 +1,20 @@
-﻿using System;
+﻿using Selfdoctor.Application.Dtos.Gender;
+using Selfdoctor.Application.Dtos.HepatitiscCategory;
+using Selfdoctor.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Selfdoctor.Domain.Models
+namespace Selfdoctor.Application.Dtos.HepatitisDiagnostic
 {
-    public class HepatitiscDiagnostic
+    public class HepatitisDiagnosticListDto
     {
         public int Id { get; set; }
         public int CategoryId { get; set; }
         public int Age { get; set; }
-        public int GenderId { get; set; }
+        public int GendenId { get; set; }
         public float ALB { get; set; }
         public float ALP { get; set; }
         public float ALT { get; set; }
@@ -26,10 +29,8 @@ namespace Selfdoctor.Domain.Models
         public string Comment { get; set; }
         public int UserId { get; set; }
 
-        public virtual User User { get; set; }
+        public GenderDto Gender { get; set; }
 
-        public virtual Gender Gender { get; set; }
-
-        public virtual HepatitiscCategory Category { get; set; }
+        public HepatitiscCategoryDto Category { get; set; }
     }
 }

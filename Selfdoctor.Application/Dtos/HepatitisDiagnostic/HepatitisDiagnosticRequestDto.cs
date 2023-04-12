@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Selfdoctor.Domain.Models
+namespace Selfdoctor.Application.Dtos.HepatitisDiagnostic
 {
-    public class HepatitiscDiagnostic
+    public class HepatitisDiagnosticRequestDto
     {
-        public int Id { get; set; }
         public int CategoryId { get; set; }
         public int Age { get; set; }
         public int GenderId { get; set; }
@@ -25,11 +24,5 @@ namespace Selfdoctor.Domain.Models
         public DateTime Date { get; set; }
         public string Comment { get; set; }
         public int UserId { get; set; }
-
-        public virtual User User { get; set; }
-
-        public virtual Gender Gender { get; set; }
-
-        public virtual HepatitiscCategory Category { get; set; }
     }
 }

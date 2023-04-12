@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Selfdoctor.Infrastructure.DbContexts;
 
@@ -11,9 +12,10 @@ using Selfdoctor.Infrastructure.DbContexts;
 namespace Selfdoctor.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230412023643_FillGendersAndHepatitisCCategoriesMigration")]
+    partial class FillGendersAndHepatitisCCategoriesMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -441,6 +443,9 @@ namespace Selfdoctor.Infrastructure.Migrations
 
                     b.Property<float>("GGT")
                         .HasColumnType("real");
+
+                    b.Property<int>("GendenId")
+                        .HasColumnType("int");
 
                     b.Property<int>("GenderId")
                         .HasColumnType("int");
