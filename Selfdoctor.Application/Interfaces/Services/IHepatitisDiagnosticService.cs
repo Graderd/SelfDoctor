@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace Selfdoctor.Application.Interfaces.Services
 {
-    public interface IHepatitisDiagnosticService 
+    public interface IHepatitisDiagnosticService
     {
         Task<IEnumerable<HepatitisDiagnosticListDto>> GetHepatitisDiagnosticsAsync(int userId);
+        Task<HepatitisDiagnosticRequestDto> GetHepatitisDiagnosticByIdAsync(int hepatitisDiagnosticId);
         Task<string> DoDiagnosticAsync(HepatitisDiagnosticRequestDto hepatitisDiagnostic);
         Task<bool> DeleteDiagnosticAsync(int diagnosticId);
     }

@@ -22,8 +22,8 @@ namespace Selfdoctor.Infrastructure.Services
         private readonly IHepatitiscDiagnosticRepository _hepatitisDiagnosticRepository;
         private readonly IHepatitiscCategoryRepository _hepatitisCategoryRepository;
 
-        public HepatitiscDiagnosticSerrvice(ILogger<HepatitiscDiagnosticSerrvice> logger, 
-            IMapper mapper, 
+        public HepatitiscDiagnosticSerrvice(ILogger<HepatitiscDiagnosticSerrvice> logger,
+            IMapper mapper,
             IHepatitiscDiagnosticRepository hepatitisDiagnosticRepository,
             IHepatitiscCategoryRepository hepatitisCategoryRepository,
             IGenderRepository genderRepository)
@@ -39,18 +39,18 @@ namespace Selfdoctor.Infrastructure.Services
             try
             {
                 var hepatiticDiagnostic = await _hepatitisDiagnosticRepository.FirstOrDefaultAsync(x => x.Id == diagnosticId);
-                if(hepatiticDiagnostic != null)
+                if (hepatiticDiagnostic != null)
                 {
                     _hepatitisDiagnosticRepository.Delete(hepatiticDiagnostic);
                     var deleted = await _hepatitisDiagnosticRepository.SaveChangesAsync();
-                    if(deleted > 0)
+                    if (deleted > 0)
                     {
                         return true;
                     }
                 }
                 return false;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
                 throw;
@@ -90,7 +90,23 @@ namespace Selfdoctor.Infrastructure.Services
 
                 return result.PredictedLabel;
             }
-            catch(Exception ex)
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
+        }
+
+        public async Task<HepatitisDiagnosticRequestDto> GetHepatitisDiagnosticByIdAsync(int hepatitisDiagnosticId)
+        {
+            try
+            {
+                var hepatitisDiagnostic = await _hepatitisDiagnosticRepository.FirstOrDefaultAsync(h => h.Id == hepatitisDiagnosticId);
+                if (hepatitisDiagnostic != null) return _mapper.Map<HepatitisDiagnosticRequestDto>(hepatitisDiagnostic);
+
+                throw new Exception("Diágnostico no existente");
+            }
+            catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
                 throw;
@@ -109,7 +125,7 @@ namespace Selfdoctor.Infrastructure.Services
                 var result = _mapper.Map<IEnumerable<HepatitisDiagnosticListDto>>(hepatitisDiagnostics);
                 return result;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
                 throw;
