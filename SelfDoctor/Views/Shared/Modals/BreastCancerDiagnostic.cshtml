@@ -1,0 +1,190 @@
+﻿@model Selfdoctor.Application.Dtos.BreastCancerDiagnostic.BreastCancerDiagnosticRequestDto
+
+
+<div class="modal fade" id="createBreastCancerDiagnostic">
+    <div class="modal-dialog modal-lg">
+        <form asp-controller="BreastCancerDiagnostic" asp-action="Index">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Diagnostico de Cancer de Mama</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <label for="radiusMean">Radio media:</label>
+                            <input type="number" asp-for="RadiusMean" class="form-control" step=".0001" id="radiusMean" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="textureMean">Textura media:</label>
+                            <input type="number" asp-for="TextureMean" class="form-control" step=".0001" id="textureMean" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="perimeterMean">Perímetro medio:</label>
+                            <input type="number" asp-for="PerimeterMean" class="form-control" step=".0001" id="perimeterMean" />
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <label for="areaMean">Media del área:</label>
+                            <input type="number" asp-for="AreaMean" class="form-control" step=".0001" id="areaMean" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="smoothnessMean">Media de Suavidad:</label>
+                            <input type="number" asp-for="SmoothnessMean" class="form-control" step=".0000001" id="smoothnessMean" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="compactnessMean">Media de compacidad:</label>
+                            <input type="number" asp-for="CompactnessMean" class="form-control" step=".0000001" id="compactnessMean" />
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <label for="concavityMean">Media de concavidad:</label>
+                            <input type="number" asp-for="ConcavityMean" class="form-control" step=".0000001" id="concavityMean" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="concavePointsMean">Media de puntos cóncavos:</label>
+                            <input type="number" asp-for="ConcavePointsMean" class="form-control" step=".0000001" id="concavePointsMean" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="symmetryMean">Media de simetría:</label>
+                            <input type="number" asp-for="SymmetryMean" class="form-control" step=".0000001" id="symmetryMean" />
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <label for="fractalDimensionMean">Media de la dimensión fractal:</label>
+                            <input type="number" asp-for="FractalDimensionMean" class="form-control" step=".0000001" id="fractalDimensionMean" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="radiusSe">Radio se:</label>
+                            <input type="number" asp-for="RadiusSe" class="form-control" step=".0000001" id="radiusSe" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="textureSe">Textura se:</label>
+                            <input type="number" asp-for="TextureSe" class="form-control" step=".0000001" id="textureSe" />
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <label for="perimeterSe">Perímetro se:</label>
+                            <input type="number" asp-for="PerimeterSe" class="form-control" step=".0000001" id="perimeterSe" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="areaSe">Area se:</label>
+                            <input type="number" asp-for="AreaSe" class="form-control" step=".0000001" id="areaSe" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="smoothnessSe">Suavidad se:</label>
+                            <input type="number" asp-for="SmoothnessSe" class="form-control" step=".0000001" id="smoothnessSe" />
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <label for="compactnessSe">Compacidad se:</label>
+                            <input type="number" asp-for="CompactnessSe" class="form-control" step=".0000001" id="compactnessSe" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="concavitySe">Concavidad se:</label>
+                            <input type="number" asp-for="ConcavitySe" class="form-control" step=".0000001" id="concavitySe" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="concavePointsSe">Puntos cóncavos se:</label>
+                            <input type="number" asp-for="ConcavePointsSe" class="form-control" step=".0000001" id="concavePointsSe" />
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <label for="symmetrySe">Simetría se:</label>
+                            <input type="number" asp-for="SymmetrySe" class="form-control" step=".0000001" id="symmetrySe" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="fractalDimensionSe">Dimensión fractal se:</label>
+                            <input type="number" asp-for="FractalDimensionSe" class="form-control" step=".0000001" id="fractalDimensionSe" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="radiusWorst">peor radio:</label>
+                            <input type="number" asp-for="RadiusWorst" class="form-control" step=".0000001" id="radiusWorst" />
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <label for="textureWorstSe">Peor textura:</label>
+                            <input type="number" asp-for="TextureWorst" class="form-control" step=".0000001" id="textureWorst" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="perimeterWorst">Peor perímetro:</label>
+                            <input type="number" asp-for="PerimeterWorst" class="form-control" step=".0000001" id="perimeterWorst" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="areaWorst">Peor área:</label>
+                            <input type="number" asp-for="AreaWorst" class="form-control" step=".0000001" id="areaWorst" />
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <label for="smoothnessWorst">Peor suavidad:</label>
+                            <input type="number" asp-for="SmoothnessWorst" class="form-control" step=".0000001" id="smoothnessWorst" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="compactnessWorst">Peor capacidad:</label>
+                            <input type="number" asp-for="CompactnessWorst" class="form-control" step=".00000001" id="compactnessWorst" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="concavityWorst">Peor concavidad:</label>
+                            <input type="number" asp-for="ConcavityWorst" class="form-control" step=".0000001" id="concavityWorst" />
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <label for="concavePointsWorst">Peor puntos cóncavos:</label> 
+                            <input type="number" asp-for="ConcavePointsWorst" class="form-control" step=".0000001" id="concavePointsWorst" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="symmetryWorst">Peor simetría:</label>
+                            <input type="number" asp-for="SymmetryWorst" class="form-control" step=".0000001" id="symmetryWorst" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="fractalDimensionWorst">Peor dimensión fractal:</label>
+                            <input type="number" asp-for="FractalDimensionWorst" class="form-control" step=".0000001" id="fractalDimensionWorst" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" data-bs-dismiss="modal" type="button" step=".0000001" id="cancelar">Cancelar</button>
+                    <button class="btn btn-primary" type="submit" id="enviar">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

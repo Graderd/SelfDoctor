@@ -1,0 +1,63 @@
+﻿@model Selfdoctor.Application.Dtos.DiabetesDiagnostic.DiabetesDiagnosticRequestDto
+
+<div class="modal fade" id="createDiabetesDiagnostic">
+    <div class="modal-dialog modal-lg">
+        <form asp-controller="DiabetesDiagnostic" asp-action="Index">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Diagnostico de Diabetes</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <label for="pregnancies">Embarazos:</label>
+                            <input type="number" asp-for="Pregnancies" class="form-control" id="pregnancies" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="glucose">Glucosa:</label>
+                            <input type="number" asp-for="Glucose" class="form-control" id="glucose" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="bloodPeresure">Presión arterial:</label>
+                            <input type="number" asp-for="BloodPeresure" class="form-control" id="bloodPeresure" />
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-4">
+                                <label for="skinThickness">Grosor de la piel:</label>
+                                <input type="number" asp-for="SkinThickness" class="form-control" id="skinThickness" />
+                        </div>
+
+                        <div class="col-md-4">
+                                <label for="insulin">Insulina:</label>
+                                <input type="number" asp-for="Insulin" class="form-control" id="insulin" />
+                            </div>
+                        <div class="col-md-4">
+                            <label for="bmi">BMI:</label>
+                            <input asp-for="BMI" class="form-control" type="number" step=".01" id="bmi" name="bmi">
+                        </div>
+
+                      <div class="row">
+                         <div class="col-md-6">
+                            <label for="DiabetesPedigreeFunction">función de genealogía de diabetes:</label>
+                            <input asp-for="DiabetesPedigreeFunction" class="form-control" type="number" step=".01" id="diabetesPedigreeFunction" name="diabetesPedigreeFunction">
+                         </div>
+                         <div class="col-md-6">
+                             <label for="age">Edad:</label>
+                             <input type="number" asp-for="Age" class="form-control" id="age" />
+                          </div>
+                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" data-bs-dismiss="modal" type="button" id="cancelar">Cancelar</button>
+                    <button class="btn btn-primary" type="submit" id="enviar">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

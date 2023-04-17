@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Selfdoctor.Application.Dtos.DiabetesDiagnostic;
+using Selfdoctor.Application.Dtos.BreastCancerDiagnostic;
 using Selfdoctor.Application.Interfaces.Services;
 using Selfdoctor.Domain.Models;
 using Selfdoctor.Infrastructure.Services;
@@ -10,30 +10,28 @@ using System.Security.Claims;
 namespace SelfDoctor.Controllers
 {
     [Authorize]
-    public class DiabetesDiagnosticController : Controller
+    public class BreastCancerDiagnosticController : Controller
     {
+        private readonly IBreastCancerDiagnosticService _breastCancerDiagnosticService;
 
-        private readonly IDiabetesDiagnosticService _diabetesDiagnosticService;
-
-        public DiabetesDiagnosticController(IDiabetesDiagnosticService diabetesDiagnosticService)
+        public BreastCancerDiagnosticController(IBreastCancerDiagnosticService breastCancerDiagnosticService)
         {
-            _diabetesDiagnosticService = diabetesDiagnosticService;
+            _breastCancerDiagnosticService = breastCancerDiagnosticService;
         }
 
         public async Task<IActionResult> Index(int id = 0)
         {
-            var viewModel = new DiabetesDiagnosticViewModel();
+            var viewModel = new BreastCancerDiagnosticViewModel();
             try
             {
                 if (TempData["Prediction"] != null)
                     ViewBag.Prediction = TempData["Prediction"];
+                if (id != 0) 
+                    viewModel.BreastCancerDiagnostic = await _breastCancerDiagnosticService.GetBreastCancerDiagnosticByIdAsync(id);
 
-                if (id != 0)
-                    viewModel.DiabetesDiagnostic = await _diabetesDiagnosticService.GetDiabetesDiagnosticByIdAsync(id);
-
-                viewModel.DiabetesDiagnostics = await GetDiagnosticsAsync();
+                viewModel.BreastCancerDiagnostics = await GetDiagnosticsAsync();
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 ViewBag.PredictionError = ex.Message;
             }
@@ -41,14 +39,14 @@ namespace SelfDoctor.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(DiabetesDiagnosticRequestDto diabetesDiagnostic)
+        public async Task<IActionResult> Index(BreastCancerDiagnosticRequestDto breastCancerDiagnostic)
         {
-            var viewModel = new DiabetesDiagnosticViewModel();
+            var viewModel = new BreastCancerDiagnosticViewModel();
             try
             {
-                diabetesDiagnostic.UserId = GetUserId();
-                var result = await _diabetesDiagnosticService.DoDiagnosticAsync(diabetesDiagnostic);
-                if (!string.IsNullOrEmpty(result))
+                breastCancerDiagnostic.UserId = GetUserId();
+                var result = await _breastCancerDiagnosticService.DoDiagnosticAsync(breastCancerDiagnostic);
+                if(!string.IsNullOrEmpty(result))
                 {
                     TempData["Prediction"] = result;
                     return RedirectToAction(nameof(Index), new { id = 0 });
@@ -58,16 +56,15 @@ namespace SelfDoctor.Controllers
             {
                 ViewBag.PredictionError = ex.Message;
             }
-
-            viewModel.DiabetesDiagnostics = await GetDiagnosticsAsync();
+            viewModel.BreastCancerDiagnostics = await GetDiagnosticsAsync();
             return View(viewModel);
         }
 
-        private async Task<IEnumerable<DiabetesDiagnosticListDto>> GetDiagnosticsAsync()
+        private async Task<IEnumerable<BreastCancerDiagnosticListDto>> GetDiagnosticsAsync()
         {
             var userId = GetUserId();
-            var diabetesCDiagnostics = await _diabetesDiagnosticService.GetDiabetesDiagnosticsAsync(userId);
-            return diabetesCDiagnostics;
+            var breasCancerDiagnostics = await _breastCancerDiagnosticService.GetBreastCancerDiagnosticListAsync(userId);
+            return breasCancerDiagnostics;
         }
 
         private int GetUserId()
@@ -83,7 +80,7 @@ namespace SelfDoctor.Controllers
 
             try
             {
-                var result = await _diabetesDiagnosticService.DeleteDiagnosticAsync(id);
+                var result = await _breastCancerDiagnosticService.DeleteDiagnosticAsync(id);
                 if (result)
                     return RedirectToAction(nameof(Index), new { id = 0 });
             }

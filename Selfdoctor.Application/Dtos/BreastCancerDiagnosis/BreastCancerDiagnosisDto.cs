@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Selfdoctor.Domain.Models
+namespace Selfdoctor.Application.Dtos.BreastCancerDiagnosis
 {
-    public class BreastCancerDiagnosis
+    public class BreastCancerDiagnosisDto
     {
         public int Id { get; set; }
         public string? Code { get; set; }
         public string Description { get; set; }
-        public virtual ICollection<BreastCancerDiagnostic> BreastCancerDiagnostics { get; set; }
     }
 }

@@ -54,6 +54,8 @@ builder.Services.AddTransient<IHepatitiscDiagnosticRepository, HepatitiscDiagnos
 
 builder.Services.AddTransient<IAuthService, AuthService>();
 builder.Services.AddTransient<IHepatitisDiagnosticService, HepatitiscDiagnosticSerrvice>();
+builder.Services.AddTransient<IDiabetesDiagnosticService, DiabetesDiagnosticService>();
+builder.Services.AddTransient<IBreastCancerDiagnosticService, BreastCancerDiagnosticService>();
 
 var app = builder.Build();
 

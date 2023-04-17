@@ -31,6 +31,7 @@ namespace Selfdoctor.Infrastructure.DbContexts
 
             FillGenders(builder);
             FillHepatitisCCategories(builder);
+            FillBreastCancerDiagnosis(builder);
         }
 
         private void FillGenders(ModelBuilder builder)
@@ -84,6 +85,27 @@ namespace Selfdoctor.Infrastructure.DbContexts
             };
 
             builder.Entity<HepatitiscCategory>().HasData(hepatitisCCategories);
+        }
+
+        private void FillBreastCancerDiagnosis(ModelBuilder builder)
+        {
+            var breastCancerDiagnoses = new List<BreastCancerDiagnosis>()
+            {
+                new BreastCancerDiagnosis()
+                {
+                    Id = 1,
+                    Code = "M",
+                    Description = "Maligno",
+                },
+                new BreastCancerDiagnosis()
+                {
+                    Id = 2,
+                    Code = "B",
+                    Description = "Benigno"
+                }
+            };
+
+            builder.Entity<BreastCancerDiagnosis>().HasData(breastCancerDiagnoses);
         }
     }
 }

@@ -33,4 +33,28 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup Label="DiabetesDiagnosticML">
+    <None Include="DiabetesDiagnosticML.consumption.cs">
+      <DependentUpon>DiabetesDiagnosticML.mbconfig</DependentUpon>
+    </None>
+    <None Include="DiabetesDiagnosticML.training.cs">
+      <DependentUpon>DiabetesDiagnosticML.mbconfig</DependentUpon>
+    </None>
+    <None Include="DiabetesDiagnosticML.zip">
+      <DependentUpon>DiabetesDiagnosticML.mbconfig</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup Label="BreastCancerDiagnosticML">
+    <None Include="BreastCancerDiagnosticML.consumption.cs">
+      <DependentUpon>BreastCancerDiagnosticML.mbconfig</DependentUpon>
+    </None>
+    <None Include="BreastCancerDiagnosticML.training.cs">
+      <DependentUpon>BreastCancerDiagnosticML.mbconfig</DependentUpon>
+    </None>
+    <None Include="BreastCancerDiagnosticML.zip">
+      <DependentUpon>BreastCancerDiagnosticML.mbconfig</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
