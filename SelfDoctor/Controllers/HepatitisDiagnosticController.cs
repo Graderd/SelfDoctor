@@ -92,5 +92,11 @@ namespace SelfDoctor.Controllers
             }
             return View();
         }
+
+        public async Task<IActionResult> GetLastHepatitisDiagnostic()
+        {
+            var lastHepatitisDiagnostic = await _hepatitisDiagnosticService.GetLastHepatitisDiagnostic();
+            return Json(lastHepatitisDiagnostic);
+        }
     }
 }

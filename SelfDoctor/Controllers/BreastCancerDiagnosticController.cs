@@ -90,5 +90,11 @@ namespace SelfDoctor.Controllers
             }
             return View();
         }
+
+        public async Task<IActionResult> GetLastBreastCancerDiagnostic()
+        {
+            var lastBreastCancerDiagnostic = await _breastCancerDiagnosticService.GetLastBreastCancerDiagnostic();
+            return Json(lastBreastCancerDiagnostic);
+        }
     }
 }

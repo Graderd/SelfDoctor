@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SelfDoctor.styles.css" asp-append-version="true" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
     @if (context.HttpContext?.User != null)
     {
@@ -15,7 +16,8 @@
     }
 </head>
 <body>
-    @if(context.HttpContext!.User.Claims.Count() == 0)
+    
+    @if (!Context.User.Identity.IsAuthenticated)
     {
         <header>
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -70,7 +72,7 @@
                                     <span class="nav-link">¡Bienvenido, @User.Identity.Name!</span>
                                 </li>
                                 <li class="nav-item">
-                                    <form method="post" asp-action="Logout" asp-controller="Account">
+                                    <form method="post" asp-action="Logout" asp-controller="Auth">
                                         <button type="submit" class="nav-link btn btn-link text-dark">Cerrar sesión</button>
                                     </form>
                                 </li>
@@ -96,7 +98,7 @@
 
   
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

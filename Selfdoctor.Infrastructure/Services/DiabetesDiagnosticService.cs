@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Selfdoctor.Application.Dtos.DiabetesDiagnostic;
+using Selfdoctor.Application.Dtos.HepatitisDiagnostic;
 using Selfdoctor.Application.Interfaces.Services;
 using Selfdoctor.Domain.Interfaces.Repositories;
 using Selfdoctor.Domain.Models;
@@ -76,6 +77,7 @@ namespace Selfdoctor.Infrastructure.Services
                 diabetesDiagnostic.Date = DateTime.Now;
                 
                 diabetesDiagnostic.Outcome = (short)result.PredictedLabel;
+                diabetesDiagnostic.Comment = result.PredictedLabel.ToString();
 
                 await _diabetesDiagnosticRepository.AddAsync(_mapper.Map<DiabetesDiagnostic>(diabetesDiagnostic));
                 await _diabetesDiagnosticRepository.SaveChangesAsync();
@@ -121,6 +123,20 @@ namespace Selfdoctor.Infrastructure.Services
             }
         }
 
-       
+        public async Task<DiabetesDiagnosticListDto> GetLastDiabetesDiagnostic()
+        {
+            try
+            {
+                var diabetesDiagnostics = await _diabetesDiagnosticRepository.GetAllAsync();
+                var lastDiabetesDiagnostic = diabetesDiagnostics.OrderByDescending(x => x.Id).FirstOrDefault();
+                return _mapper.Map<DiabetesDiagnosticListDto>(lastDiabetesDiagnostic);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
+        }
+
     }
 }

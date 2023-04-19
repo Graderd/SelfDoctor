@@ -1,4 +1,5 @@
 ﻿using Selfdoctor.Application.Dtos.DiabetesDiagnostic;
+using Selfdoctor.Application.Dtos.HepatitisDiagnostic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,6 @@ namespace Selfdoctor.Application.Interfaces.Services
         Task<DiabetesDiagnosticRequestDto> GetDiabetesDiagnosticByIdAsync(int DiabetesDiagnosticId);
         Task<string> DoDiagnosticAsync(DiabetesDiagnosticRequestDto diabetesDiagnostic);
         Task<bool> DeleteDiagnosticAsync(int diagnosticId);
+        Task<DiabetesDiagnosticListDto> GetLastDiabetesDiagnostic();
     }
 }

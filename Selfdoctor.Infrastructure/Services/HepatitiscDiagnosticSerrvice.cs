@@ -131,5 +131,20 @@ namespace Selfdoctor.Infrastructure.Services
                 throw;
             }
         }
-    }
+
+		public async Task<HepatitisDiagnosticListDto> GetLastHepatitisDiagnostic()
+		{
+			try
+			{
+				var hepatitisDiagnostics = await _hepatitisDiagnosticRepository.GetAllAsync();
+                var lastHepatitisDiagnostic = hepatitisDiagnostics.OrderByDescending(x => x.Id).FirstOrDefault();
+                return _mapper.Map<HepatitisDiagnosticListDto>(lastHepatitisDiagnostic);    
+			}
+			catch (Exception ex)
+			{
+				_logger.LogError(ex.Message);
+				throw;
+			}
+		}
+	}
 }

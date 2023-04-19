@@ -93,5 +93,11 @@ namespace SelfDoctor.Controllers
             }
             return View();
         }
+
+        public async Task<IActionResult> GetLastDiabetesDiagnostic()
+        {
+            var lastDiabetesDiagnostic = await _diabetesDiagnosticService.GetLastDiabetesDiagnostic();
+            return Json(lastDiabetesDiagnostic);
+        }
     }
 }

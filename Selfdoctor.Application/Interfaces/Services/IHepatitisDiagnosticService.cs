@@ -13,5 +13,6 @@ namespace Selfdoctor.Application.Interfaces.Services
         Task<HepatitisDiagnosticRequestDto> GetHepatitisDiagnosticByIdAsync(int hepatitisDiagnosticId);
         Task<string> DoDiagnosticAsync(HepatitisDiagnosticRequestDto hepatitisDiagnostic);
         Task<bool> DeleteDiagnosticAsync(int diagnosticId);
+        Task<HepatitisDiagnosticListDto> GetLastHepatitisDiagnostic();
     }
 }

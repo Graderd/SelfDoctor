@@ -66,5 +66,17 @@ namespace SelfDoctor.Controllers
             ViewBag.LoginActive = "right-panel-active";
             return View("Register");
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            foreach (var cookie in Request.Cookies.Keys) Response.Cookies.Delete(cookie);
+
+
+            return RedirectToAction("Register", "Auth");
+
+        }
     }
 }

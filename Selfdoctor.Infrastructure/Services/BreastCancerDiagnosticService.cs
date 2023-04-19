@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Logging;
 using Selfdoctor.Application.Dtos.BreastCancerDiagnostic;
+using Selfdoctor.Application.Dtos.DiabetesDiagnostic;
 using Selfdoctor.Application.Interfaces.Services;
 using Selfdoctor.Domain.Interfaces.Repositories;
 using Selfdoctor.Domain.Models;
@@ -140,6 +141,21 @@ namespace Selfdoctor.Infrastructure.Services
                 });
                 var result = _mapper.Map<IEnumerable<BreastCancerDiagnosticListDto>>(breastCancerDiagnostic);
                 return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
+        }
+
+        public async Task<BreastCancerDiagnosticListDto> GetLastBreastCancerDiagnostic()
+        {
+            try
+            {
+                var breastCancerDiagnostics = await _breastCancerDiagnosticRepository.GetAllAsync();
+                var lastBreastCancerDiagnostic = breastCancerDiagnostics.OrderByDescending(x => x.Id).FirstOrDefault();
+                return _mapper.Map<BreastCancerDiagnosticListDto>(lastBreastCancerDiagnostic);
             }
             catch (Exception ex)
             {

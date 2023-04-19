@@ -15,6 +15,7 @@ namespace Selfdoctor.Application.Interfaces.Services
         Task<BreastCancerDiagnosticRequestDto> GetBreastCancerDiagnosticByIdAsync(int BreastCancerDiagnosticId);
         Task<string> DoDiagnosticAsync(BreastCancerDiagnosticRequestDto breastCancerDiagnostic);
         Task<bool> DeleteDiagnosticAsync(int diagnosticId);
+        Task<BreastCancerDiagnosticListDto> GetLastBreastCancerDiagnostic();
 
     }
 }

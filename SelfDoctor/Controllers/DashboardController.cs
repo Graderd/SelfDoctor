@@ -11,16 +11,26 @@ namespace SelfDoctor.Controllers
     public class DashboardController : Controller
     {
         private readonly IHepatitisDiagnosticService _hepatitisDiagnosticService;
+		private readonly IBreastCancerDiagnosticService _breastCancerDiagnosticService;
+		private readonly IDiabetesDiagnosticService _diabetesDiagnosticService;
 
-        public DashboardController(IHepatitisDiagnosticService hepatitisDiagnosticService)
+		public DashboardController(IHepatitisDiagnosticService hepatitisDiagnosticService, IBreastCancerDiagnosticService breastCancerDiagnosticService, IDiabetesDiagnosticService diabetesDiagnosticService)
         {
             _hepatitisDiagnosticService = hepatitisDiagnosticService;
+            _breastCancerDiagnosticService = breastCancerDiagnosticService;
+            _diabetesDiagnosticService = diabetesDiagnosticService;
         }
 
         public async Task<IActionResult> Index()
         {
             var hepatitisDiagnostics = await _hepatitisDiagnosticService.GetHepatitisDiagnosticsAsync(GetUserId());
             ViewBag.HepatitisDiagnosticsCount = hepatitisDiagnostics.Count();
+
+            var breastDiagnostics = await _breastCancerDiagnosticService.GetBreastCancerDiagnosticListAsync(GetUserId());
+            ViewBag.BreastCancerDiagnosticsCount = breastDiagnostics.Count();
+
+            var diabetesDiagnostics = await _diabetesDiagnosticService.GetDiabetesDiagnosticsAsync(GetUserId());
+            ViewBag.DiabetesDiagnosticsCount = diabetesDiagnostics.Count();
 
             return View();
         }
